@@ -100,3 +100,28 @@ public macro ObservableProperty() = #externalMacro(module: "MacroExamplesImpleme
 @attached(member, names: arbitrary)
 @attached(extension, conformances: OptionSet)
 public macro MyOptionSet<RawType>() = #externalMacro(module: "MacroExamplesImplementation", type: "OptionSetMacro")
+
+// MARK: - Property Wrapper
+
+public struct PropertyWrapper<T> {
+  private var storage: T
+  
+  public init(storage: T) {
+    self.storage = storage
+  }
+  
+  public var wrappedValue: T {
+    get {
+      print("Getting value \(self.storage)")
+      return self.storage
+    }
+    
+    set {
+      print("Setting value \(newValue)")
+      self.storage = newValue
+    }
+  }
+}
+
+@attached(accessor) @attached(peer, names: prefixed(_)) public macro PropertyWrapper() = #externalMacro(module: "MacroExamplesImplementation", type: "PropertyWrapperMacro")
+@attached(accessor) @attached(peer, names: prefixed(_)) public macro Wrapper() = #externalMacro(module: "MacroExamplesImplementation", type: "PropertyWrapperMacro")

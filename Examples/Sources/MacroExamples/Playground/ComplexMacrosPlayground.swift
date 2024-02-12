@@ -71,3 +71,20 @@ struct ShippingOptions {
   static let express: ShippingOptions = [.nextDay, .secondDay]
   static let all: ShippingOptions = [.express, .priority, .standard]
 }
+
+// MARK: - Property Wrapper
+
+struct Name {
+  @Wrapper var first: String = ""
+  @PropertyWrapper var last: String = ""
+}
+
+func runPropertyWrapperMacroPlayground() {
+  var name = Name()
+  print(name.first)
+  print(name.last)
+  name.first = "Johnny"
+  name.last = "Appleseed"
+  print(name.first)
+  print(name.last)
+}

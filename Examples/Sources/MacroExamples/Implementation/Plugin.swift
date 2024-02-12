@@ -36,6 +36,7 @@ struct MyPlugin: CompilerPlugin {
     ObservablePropertyMacro.self,
     OptionSetMacro.self,
     PeerValueWithSuffixNameMacro.self,
+    PropertyWrapperMacro.self,
     StringifyMacro.self,
     URLMacro.self,
     WarningMacro.self,

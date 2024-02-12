@@ -21,6 +21,7 @@ import MacroExamplesInterface
 
 runDictionaryStorageMacroPlayground()
 runObservableMacroPlayground()
+runPropertyWrapperMacroPlayground()
 
 // MARK: - Declaration Macros
 
